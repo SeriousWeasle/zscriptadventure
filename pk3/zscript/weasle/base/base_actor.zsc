@@ -1,0 +1,21 @@
+/*
+This is the base class from my mod
+*/
+
+Class WS_Actor : Actor replaces Actor
+{
+	Default
+	{
+		TeleFogSourceType "WS_TeleportFog";
+		TeleFogDestType "WS_TeleportFog";
+
+		Scale 1.0;
+	}
+
+	States
+	{
+		ExpandFinish:
+			TNT1 A 1;
+			Stop;
+	}
+}

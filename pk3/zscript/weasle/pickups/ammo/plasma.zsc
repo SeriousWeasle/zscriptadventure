@@ -1,0 +1,25 @@
+/*
+Plasma ammo pickups
+*/
+
+Class SmallPlasmaCell : Ammo
+{
+	Default
+	{
+		Scale 1.0;
+		Radius 10;
+		Height 8;
+		Inventory.Icon "PCELA0";
+		Inventory.PickupSound "ammo/plasmapickup";
+		Inventory.PickupMessage "$WS_GOTPLASMACELL";
+		Inventory.Amount 20;
+		Inventory.MaxAmount 400;
+	}
+
+	States
+	{
+		Spawn:
+			PCEL A -1;
+			Stop;
+	}
+}

@@ -1,0 +1,2 @@
+//Plasma Cell pickup sound
+ammo/plasmapickup				plsclpkp

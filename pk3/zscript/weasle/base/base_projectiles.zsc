@@ -1,0 +1,15 @@
+Class WS_ProjectileActor : WS_Actor
+{
+	Default
+	{
+		Mass 0;
+		Speed 6;
+		RenderStyle "Normal";
+		Alpha 1.0;
+
+		Projectile;
+
+		+ActivateImpact
+		+ActivatePCross
+	}
+}

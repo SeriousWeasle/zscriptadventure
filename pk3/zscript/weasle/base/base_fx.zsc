@@ -1,0 +1,69 @@
+/*
+Effects such as teleport fog and such
+*/
+
+Class WS_TeleportFog : TeleportFog replaces TeleportFog
+{
+	Default
+	{
+		Scale 1.0;
+	}
+}
+
+Class WS_BulletPuff : BulletPuff replaces BulletPuff
+{
+	Default
+	{
+		Scale 1.0;
+		RenderStyle "Translucent";
+		Alpha 0.6;
+		AttackSound "weapons/wallhit";
+		SeeSound "weapons/hitenemy";
+
+		+NoBlockMap
+		+NoGravity
+		+ActivatePCross
+	}
+
+	States
+	{
+		Spawn:
+			PUFF ABCD 4 Bright;
+			Stop;
+	}
+}
+
+Class WS_Blood : WS_Actor replaces Blood
+{
+	Default
+	{
+		Mass 100;
+		VSpeed 0;
+		Speed 0;
+		FloatSpeed 0;
+		Gravity 0;
+		Scale 1.0;
+		RenderStyle "Translucent";
+		Alpha 0.7;
+
+		-AllowParticles
+		+NoBlockMap
+		+NoTeleport
+		+DropOff
+		+Missile
+		+DontFall
+	}
+
+	States
+	{
+		Spawn:
+			WBLD AB 3 A_Stop;
+			WBLD C 3
+			{
+				A_Stop();
+				A_SetGravity(0.5);
+			}
+			WBLD DE 3 A_Gravity;
+			Stop;
+	}
+}
