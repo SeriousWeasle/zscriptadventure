@@ -2,7 +2,7 @@
 Plasma ammo pickups
 */
 
-Class SmallPlasmaCell : Ammo
+Class PlasmaCell : Ammo
 {
 	Default
 	{

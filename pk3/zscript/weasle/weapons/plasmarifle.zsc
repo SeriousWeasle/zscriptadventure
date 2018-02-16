@@ -1,0 +1,16 @@
+/*
+Plasma rifle
+*/
+
+Class WS_PlasmaRifle : WS_Weapon
+{
+	Default
+	{
+		Scale 1.0;
+		Radius 24;
+		Height 24;
+		Inventory.Icon "PSG1A0";
+		Inventory.PickupMessage "$WS_GOTPLASMARIFLE"
+
+	}
+}
