@@ -1,1 +1,1 @@
-PCELA = "PCELA" {Scale = 2.0}
+PCELA = "PCELA" {}

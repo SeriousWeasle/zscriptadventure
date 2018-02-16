@@ -1,0 +1,17 @@
+pointlight PlasmaCellGlow
+{
+	color 0.2 1.0 0.1
+	size 12
+	offset 0 0 0
+	subtractive 0
+	attenuate 0
+	dontlightself 0
+}
+
+Object PlasmaCell
+{
+	frame PCELA
+	{
+		light PlasmaCellGlow
+	}
+}

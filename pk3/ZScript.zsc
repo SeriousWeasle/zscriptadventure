@@ -4,6 +4,7 @@ version "2.4"
 #include "zscript/weasle/base/base_actor.zsc"
 #include "zscript/weasle/base/base_fx.zsc"
 #include "zscript/weasle/base/base_projectiles.zsc"
+#include "zscript/weasle/base/base_weapon.zsc"
 
 //Ammo
 #include "zscript/weasle/pickups/ammo/plasma.zsc"

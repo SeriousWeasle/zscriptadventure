@@ -10,7 +10,71 @@ Class WS_PlasmaRifle : WS_Weapon
 		Radius 24;
 		Height 24;
 		Inventory.Icon "PSG1A0";
-		Inventory.PickupMessage "$WS_GOTPLASMARIFLE"
+		Inventory.PickupMessage "$WS_GOTPLASMARIFLE";
+		Weapon.AmmoType1 "Cell";
+		Weapon.AmmoType2 "PlasmaCell";
+		Weapon.AmmoUse1 1;
+		Weapon.AmmoUse2 1;
+		Weapon.AmmoGive1 120;
+		Weapon.AmmoGive2 80;
+		Weapon.SelectionOrder 2800;
+		Weapon.SlotNumber 6;
+	}
 
+	States
+	{
+		Spawn:
+			BPAK A -1;
+			Stop;
+		Ready:
+			PRFL A 1 A_WeaponReady (WRF_ALLOWRELOAD|WRF_ALLOWZOOM);
+			Loop;
+		Select:
+			PRFL A 1 A_Raise;
+			Loop;
+		Deselect:
+			PRFL A 1 A_Lower;
+			Loop;
+		Fire:
+			PRFL A 1 A_FirePlasma;
+			PRFL A 1 A_WeaponOffset(5, 5, WOF_ADD|WOF_INTERPOLATE);
+			PRFL A 1 A_WeaponOffset(-5, -5, WOF_ADD|WOF_INTERPOLATE);
+			PRFL A 1 A_ReFire;
+			Goto Ready;
+		AltFire:
+			PRFL A 1 A_FirePlasma;
+			PRFL A 1 A_WeaponOffset(10, 10, WOF_ADD|WOF_INTERPOLATE);
+			PRFL A 1 A_WeaponOffset(-2.5, -2,5, WOF_ADD|WOF_INTERPOLATE);
+			PRFL A 1 A_WeaponOffset(-2.5, -2,5, WOF_ADD|WOF_INTERPOLATE);
+			PRFL A 1 A_WeaponOffset(-2.5, -2,5, WOF_ADD|WOF_INTERPOLATE);
+			PRFL A 1 A_WeaponOffset(-2.5, -2,5, WOF_ADD|WOF_INTERPOLATE);
+			PRFL A 1;
+			PRFL A 1 A_ReFire;
+			Goto Ready;
+	}
+}
+
+Actor WS_PlasmaBall : WS_ProjectileActor
+{
+	Default
+	{
+		Radius 4;
+		Height 4;
+		Speed 30;
+		Damage 3;
+		DamageType: "Plasma";
+		Scale 1.0;
+		RenderStyle "Add";
+		Alpha 0.75;
+	}
+
+	States
+	{
+		Spawn:
+			PLS1 AB 4 Bright;
+			Loop;
+		Death:
+			PLS1 CDEFG 4 Bright;
+			Stop;
 	}
 }
