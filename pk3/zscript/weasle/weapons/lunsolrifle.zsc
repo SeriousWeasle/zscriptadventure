@@ -1,0 +1,43 @@
+/*
+Combined Lunarium/Solarium rifle
+*/
+
+Class WS_LunSolRifle : WS_Weapon
+{
+	Default
+	{
+		Scale 1.0;
+		Radius 24;
+		Height 24;
+		Inventory.Icon "LNSRA0";
+		Inventory.PickupMessage "$WS_GOTLNSLRIFLE";
+		Weapon.AmmoType1 "Clip";
+		Weapon.AmmoType2 "Cell";
+		Weapon.AmmoUse1 1;
+		Weapon.AmmoUse2 1;
+		Weapon.AmmoGive1 20;
+		Weapon.AmmoGive2 12;
+		Weapon.SelectionOrder 2900;
+		Weapon.SlotNumber 6;
+	}
+
+	States
+	{
+		Spawn:
+			BPAK A -1;
+			Stop;
+		Ready:
+			TEST A 1 A_WeaponReady;
+		Select:
+			TEST A 1 A_Raise;
+		Deselect:
+			TEST A 1 A_Lower;
+			Loop;
+		Fire:
+			TNT1 A 1;
+			Stop;
+		AltFire:
+			TNT1 A 1;
+			Stop;
+	}
+}

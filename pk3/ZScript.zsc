@@ -17,3 +17,4 @@ version "2.4"
 
 //Weapons
 #include "zscript/weasle/weapons/plasmarifle.zsc"
+#include "zscript/weasle/weapons/lunsolrifle.zsc"

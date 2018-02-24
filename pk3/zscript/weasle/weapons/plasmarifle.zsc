@@ -44,17 +44,17 @@ Class WS_PlasmaRifle : WS_Weapon
 		AltFire:
 			PRFL A 1 A_FirePlasma;
 			PRFL A 1 A_WeaponOffset(10, 10, WOF_ADD|WOF_INTERPOLATE);
-			PRFL A 1 A_WeaponOffset(-2.5, -2,5, WOF_ADD|WOF_INTERPOLATE);
-			PRFL A 1 A_WeaponOffset(-2.5, -2,5, WOF_ADD|WOF_INTERPOLATE);
-			PRFL A 1 A_WeaponOffset(-2.5, -2,5, WOF_ADD|WOF_INTERPOLATE);
-			PRFL A 1 A_WeaponOffset(-2.5, -2,5, WOF_ADD|WOF_INTERPOLATE);
+			PRFL A 1 A_WeaponOffset(-2.5, -2.5, WOF_ADD|WOF_INTERPOLATE);
+			PRFL A 1 A_WeaponOffset(-2.5, -2.5, WOF_ADD|WOF_INTERPOLATE);
+			PRFL A 1 A_WeaponOffset(-2.5, -2.5, WOF_ADD|WOF_INTERPOLATE);
+			PRFL A 1 A_WeaponOffset(-2.5, -2.5, WOF_ADD|WOF_INTERPOLATE);
 			PRFL A 1;
 			PRFL A 1 A_ReFire;
 			Goto Ready;
 	}
 }
 
-Actor WS_PlasmaBall : WS_ProjectileActor
+Class WS_PlasmaBall : WS_ProjectileActor
 {
 	Default
 	{
@@ -62,7 +62,7 @@ Actor WS_PlasmaBall : WS_ProjectileActor
 		Height 4;
 		Speed 30;
 		Damage 3;
-		DamageType: "Plasma";
+		DamageType "Plasma";
 		Scale 1.0;
 		RenderStyle "Add";
 		Alpha 0.75;
@@ -75,6 +75,31 @@ Actor WS_PlasmaBall : WS_ProjectileActor
 			Loop;
 		Death:
 			PLS1 CDEFG 4 Bright;
+			Stop;
+	}
+}
+
+Class WS_AltPlasmaBall : WS_ProjectileActor
+{
+	Default
+	{
+		Radius 8;
+		Height 8;
+		Speed 20;
+		Damage 6;
+		DamageType "Plasma";
+		Scale 1.0;
+		RenderStyle "Add";
+		Alpha 0.75;
+	}
+
+	States
+	{
+		Spawn:
+			PLS2 AB 4 Bright;
+			Loop;
+		Death:
+			PLS2 CDEFG 4 Bright;
 			Stop;
 	}
 }
